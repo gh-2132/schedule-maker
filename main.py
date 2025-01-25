@@ -18,12 +18,18 @@ class MainWindow(QMainWindow):
         # Create the text at the bottom
         dateLabel = QLabel(self)
         dateLabel.setGeometry(0, 650, 1000, 50)
-        dateLabel.setText(str(QDate.currentDate()))
+        dateLabel.setText("A")
         dateLabel.setFont(QFont('Arial', 20))
 
+        date_button = QPushButton(self)
+        date_button.setText("Get the date")
+        date_button.setGeometry(0, 600, 100, 50)
+        date_button.clicked.connect(self.getCurrentDate)
+
     def getCurrentDate(self):
-        pass
         # Display the date
+        date = QDate.currentDate()
+        print(date.toString())
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
